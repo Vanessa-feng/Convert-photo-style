@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+   <head>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+          rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h3 class="text-muted">Upload photos and convert the style...</h3>
+      </div>
+      <hr/>
+
+      <form action="upload" method="post" enctype="multipart/form-data">
+        <input type="file" id="files" name="files" multiple=""><br /><br />
+        <input type="submit" value="Upload"><br /><br />
+      </form>
+
+      
+      <table>
+         
+         <tr>
+            <td><center><i> Input </i></center></td>
+            <td><center><i> Van Gogh </i></center></td>
+            <td><center><i> Monet </i></center></td>
+            <td><center><i> Chinese painting </i></center></td>
+            <td><center><i> Van Gogh & Monet(0.7) </i></center></td>
+            <td><center><i> Van Gogh & Monet(0.3) </i></center></td>
+         </tr>
+
+         {% if urllist[0] %}
+            {% for i in range(urllist[0]|length) %}
+            <tr>
+               <div>
+               
+               <td><center><img src="{{ urllist[0][i] }}" width="200px"></center></td>
+               
+               <td><center><img src="{{ urllist[1][i] }}" width="200px"></center></td>
+
+               <td><center><img src="{{ urllist[2][i] }}" width="200px"></center></td>
+
+               <td><center><img src="{{ urllist[3][i] }}" width="200px"></center></td>
+               
+               <td><center><img src="{{ urllist[4][i] }}" width="200px"></center></td>
+               
+               <td><center><img src="{{ urllist[5][i] }}" width="200px"></center></td>
+               
+               </div>
+            </tr>
+            {% endfor %}
+         {% endif %}
+         </tr>
+      </table>
+   </div>
+   </body>
+</html>
